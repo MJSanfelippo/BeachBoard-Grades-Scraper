@@ -1,1 +1,1 @@
-# BeachBoard-Grades-Scraper
+This is a tiny Python script that logs into BeachBoard for me, gets all the grades for all my assignments in my classes, and calculates my current grade. Others can use it by editing the course names in the main method and putting in their own login info.
