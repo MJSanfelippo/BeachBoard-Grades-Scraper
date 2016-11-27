@@ -58,15 +58,13 @@ def lookup(driver, query, courseName):
         print("Box or Button not found in the site")
 
 if __name__ == "__main__":
-    message = []
     driver = init_driver()
-    x = (lookup(driver, "Selenium","REC 141 Sec 04 10919 Intro to Leisure Services"))
-    message.append(x)
+    lookup(driver, "Selenium","REC 141 Sec 04 10919 Intro to Leisure Services")
     driver = init_driver()
-    message.append(lookup(driver, "Selenium", "BIOL 200 Sec 01A 1147 General Biology"))
+    lookup(driver, "Selenium", "BIOL 200 Sec 01A 1147 General Biology")
     driver = init_driver()
-    message.append(lookup(driver, "Selenium", "CECS 229 Sec 03 10376 Discrete Struct Comp Applic II"))
+    lookup(driver, "Selenium", "CECS 229 Sec 03 10376 Discrete Struct Comp Applic II")
     driver = init_driver()
-    message.append(lookup(driver, "Selenium", "CECS 341 Sec 05 11273 Computer Architect Organizatin"))
+    lookup(driver, "Selenium", "CECS 341 Sec 05 11273 Computer Architect Organizatin")
     driver = init_driver()
-    message.append(lookup(driver, "Selenium", "CECS 343 Sec 01 4057 Intro to Software Engineering"))
+    lookup(driver, "Selenium", "CECS 343 Sec 01 4057 Intro to Software Engineering")
