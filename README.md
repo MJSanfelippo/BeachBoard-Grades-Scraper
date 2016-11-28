@@ -1,1 +1,6 @@
-This is a tiny Python script that logs into BeachBoard for me, gets all the grades for all my assignments in my classes, and calculates my current grade. Others can use it by editing the course names in the main method and putting in their own login info. They also have to have python downloaded along with Selenium and BeautifulSoup4. Lastly they need ChromeDriver.
+This is a tiny Python script that logs into BeachBoard, gets all grades for all assignments in the classes, and calculates the current grade for each class. It takes approximately 10s to run. For others to use, they will need:
+
+-Python 3
+-Selenium
+-BeautifulSoup4
+-PhantomJS, ChromeDriver, or some other browser executable
