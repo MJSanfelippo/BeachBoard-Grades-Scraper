@@ -27,6 +27,7 @@ def lookup(driver, username, password, listOfCourses):
         for i in range(len(listOfCourses)):
             course = driver.wait.until(EC.presence_of_element_located((
                 By.LINK_TEXT, listOfCourses[i]))) # finds the link of the course
+            print("ye")
             courseID = course.get_attribute("href") # finds the href attribute (the place that it goes when clicked)
             courseID = courseID[(len(courseID)) - 6:] # this strips the href into just the last 6 elements in it which is the course's ID
             coursesGradesURLS.append("https://bbcsulb.desire2learn.com/d2l/lms/grades/my_grades/main.d2l?ou="+courseID) # this url is the same for all course grade pages except for the id
@@ -49,9 +50,12 @@ def lookup(driver, username, password, listOfCourses):
                         print(end='')
             sumMine = sum(myPoints) # gets the sum of all of your points
             sumTotal = sum(totalPoints) # gets the sum of all of the total points available
-            grade = (sumMine / sumTotal) * 100 # determines your grade
-            msg = "Course name: " + courses[i] + "\nGrade: " + str(round(grade, 2)) + "%" # prints your grade rounded to 2 decimal places
-            print(msg)
+            if (sumTotal==0):
+                print("No grades posted for " + courses[i])
+            else:
+                grade = (sumMine / sumTotal) * 100 # determines your grade
+                msg = "Course name: " + courses[i] + "\nGrade: " + str(round(grade, 2)) + "%" # prints your grade rounded to 2 decimal places
+                print(msg)
         driver.quit()
     except TimeoutException:
         print("Element not found in the site in time")
@@ -59,11 +63,10 @@ def lookup(driver, username, password, listOfCourses):
 if __name__ == "__main__":
     driver = init_driver()
     # list of courses
-    courses = ["REC 141 Sec 04 10919 Intro to Leisure Services",
-               "BIOL 200 Sec 01A 1147 General Biology",
-               "BIOL 200 Sec 11 1154 General Biology",
-               "CECS 229 Sec 03 10376 Discrete Struct Comp Applic II",
-               "CECS 341 Sec 05 11273 Computer Architect Organizatin",
-               "CECS 343 Sec 01 4057 Intro to Software Engineering"]
+    courses = ["CECS 326 Sec 01 1204 Operating Systems",
+               "CECS 323 Sec 09 8254 Database Fundamentals",
+               "CECS 328 Sec 01 1206 Data Structures and Algorithms",
+               "ENGR 350 Sec 03 8416 Computers- Ethics & Society",
+               "REC 340 Sec 02 5610 Leisure Contemporary Society"]
     # lookup(driver, [USERNAME HERE], [PASSWORD HERE], courses)
     lookup(driver, "", "", courses)
